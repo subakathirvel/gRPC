@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package todoPackage;
+
+service Todo {
+    rpc createTodo (TodoItem) returns (TodoItem);
+    rpc readTodos (Voidp) returns (stream TodoItem);
+}
+service Greet{
+    rpc morningGreet (greetresponse) returns (greetresponse);
+}
+
+message Voidp {}
+
+message TodoItem {
+    int32 id = 1;
+    string text = 2;
+}
+
+message TodoItems {
+    repeated TodoItem items = 1;
+}
+
+message greetresponse  {
+  string greetMsg = 1;
+}
